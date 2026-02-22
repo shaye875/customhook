@@ -17,6 +17,8 @@ import useWindowSize from "./hooks/useWindowSize"
 import useOnlineStatus from "./hooks/useOnlineStatus"
 import useKeyPress from "./hooks/useKeyPress"
 import useOutsideClick from "./hooks/useOutsideClick"
+import useFetchJson from "./hooks/useFetchJson"
+import useClipboard from "./hooks/useClipboard"
 
 function App() {
   const { toglle, setTrue, setFalse } = useToggle(true)
@@ -37,6 +39,8 @@ function App() {
   const {isOnline} = useOnlineStatus()
   const {isPressed} = useKeyPress("shift")
   const {clic1k,outt} = useOutsideClick("before","click")
+  const {data} = useFetchJson("./data/db.json")
+  const {value12} = useClipboard("popop")
   return (
     <>
       <h1>{String(toglle)}</h1>
@@ -96,8 +100,10 @@ function App() {
       <h1>{heigth}</h1>
       <h1>is online: {String(isOnline)}</h1>
       <h1>is: {String(isPressed)}</h1>
-      <h1>{clic1k.current}</h1>
+      <h1>{clic1k}</h1>
       <button onClick={()=>outt()}>click</button>
+      <h1>{data[0].db}</h1>
+      <h1>{value12}</h1>
     </>
   )
 }

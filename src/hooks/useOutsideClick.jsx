@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 function useOutsideClick(ref, onOutsideClick) {
-    const clic1k = useRef(ref)
+    const [clic1k,setClick] = useState(ref)
     function outt(){
-        clic1k.current = onOutsideClick
+        setClick(onOutsideClick)
             
     }
 
